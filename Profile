@@ -1,11 +1,18 @@
 //вариант 15 Миньков Средний уровень 
-Console.WriteLine("Введите число N:");
-double N = double.Parse(Console.ReadLine());
-Console.WriteLine("Введите число X:");
-double x = double.Parse(Console.ReadLine());
-double sum = 0;
-for (int i = 0; i < N; i++)
+int sum = 0;
+for (int k = 000001; k <= 999999; k++)
 {
-    sum += Math.Pow(-1, i) * (Math.Pow(x, 2 * i + 1) / (2 * i + 1));
+    int number1 = k / 100000;
+    int number2 = (k % 100000) / 10000;
+    int number3 = (k % 10000) / 1000;
+    int number4 = (k % 1000) / 100;
+    int number5 = (k % 100) / 10;
+    int number6 = k % 10;
+
+    if (number1 + number2 + number3 == number4 + number5 + number6)
+    {
+        sum++;
+    }
 }
-Console.WriteLine("Ответ:"+sum) ;
+Console.WriteLine(sum + " счастливых билетов."); 
+
