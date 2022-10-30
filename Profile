@@ -1,61 +1,11 @@
-//Миньков Вариант 15
-double[] arr = new double[14];
-Random n = new Random();
-
-
-Console.WriteLine("массив случайных вещественных чисел: ");
-for (int i = 0; i < arr.Length; i++)
+//вариант 15 Миньков Средний уровень 
+Console.WriteLine("Введите число N:");
+double N = double.Parse(Console.ReadLine());
+Console.WriteLine("Введите число X:");
+double x = double.Parse(Console.ReadLine());
+double sum = 0;
+for (int i = 0; i < N; i++)
 {
-    arr[i] = n.NextDouble() * 10;
-    Console.WriteLine(arr[i]);
+    sum += Math.Pow(-1, i) * (Math.Pow(x, 2 * i + 1) / (2 * i + 1));
 }
-Console.WriteLine();
-
-double asc;
-double van;
-
-
-Console.WriteLine("0-7 элементы по возрастанию: ");
-for (int i = 0; i < 6; i++)
-{
-    for (int j = i + 1; j < 7; j++)
-    {
-        if (arr[j] < arr[i])
-        {
-            asc = arr[j];
-            arr[j] = arr[i];
-            arr[i] = asc;
-
-        }
-    }
-}
-
-
-for (int i = 0; i < 7; i++)
-{
-    Console.WriteLine("[" + i + "]: " + arr[i] + " ");
-}
-Console.WriteLine();
-
-
-
-Console.WriteLine("8-14 элементы по убыванию: ");
-for (int i = 7 ; i  < 14 ; i++)
-{
-    for(int j = i + 1; j < 14 ; j++)
-      {
-        if (arr[i] < arr[j])
-        {
-            van = arr[i];
-            arr[i] = arr[j ];
-            arr[j] = van;
-        }
-    }
-}
-
-
-
-for (int i = 7; i < 14; i++)
-{
-    Console.WriteLine("[" + i + "]: " + arr[i] + " ");
-}
+Console.WriteLine("Ответ:"+sum) ;
